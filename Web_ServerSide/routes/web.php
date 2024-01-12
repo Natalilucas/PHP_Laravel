@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('bemvindos');
 
-Route::get('/home', function () {
-    return view('welcome');
-})->name('home.index');
-
-
-Route::get('/ola/', function () {
+Route::get('/ola', function () {
     return '<h1>Hello Turma de Software</h1>';
 })->name('home.hello');
 
@@ -30,3 +27,30 @@ Route::get('/ola/', function () {
 Route::get('/hello/{nome}', function ($nome) {
     return '<h1>Hello Turma de Software</h1>'.$nome;
 });
+
+
+// Route::get('/home', function () {
+//     return view('main.home');
+// })->name('home.index');
+
+Route::get('/home', [IndexController::class, 'indexHome']
+)->name('home.index');
+
+Route::get('/home', [IndexController::class, 'allContacts']
+)->name('home.index');
+
+Route::get('/users/add', [UserController::class, 'indexUser']
+)->name('users.add');
+
+Route::get('/users/all', [UserController::class, 'dayOfWeek']
+)->name('users.all');
+
+
+// Route::get('/users/all', [UserController::class, 'info']
+// )->name('users.all');
+
+
+Route::fallback(function(){
+    return view('main.fallback');
+});
+
