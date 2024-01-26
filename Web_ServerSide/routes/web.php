@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,22 +30,32 @@ Route::get('/hello/{nome}', function ($nome) {
 });
 
 
+
 // Route::get('/home', function () {
 //     return view('main.home');
 // })->name('home.index');
 
-Route::get('/home', [IndexController::class, 'indexHome']
+Route::get('/users/view/{id}', [UserController::class, 'viewUser']
+)->name('users.view');
+
+
+Route::get('/home', [IndexController::class, 'index']
 )->name('home.index');
 
-Route::get('/home', [IndexController::class, 'allContacts']
-)->name('home.index');
+//Route::get('/home', [UserController::class, 'indexUser']
+//)->name('home.index');
 
-Route::get('/users/add', [UserController::class, 'indexUser']
-)->name('users.add');
-
-Route::get('/users/all', [UserController::class, 'dayOfWeek']
+Route::get('/users/all', [UserController::class, 'allUsers']
 )->name('users.all');
 
+Route::get('/users/add', [UserController::class, 'addUser']
+)->name('users.add');
+
+Route::get('/tasks/all', [TaskController::class, 'allTasks']
+)->name('tasks.allTasks');
+
+/*Route::get('/users/all', [UserController::class, 'allUsers']
+)->name('users.all');*/
 
 // Route::get('/users/all', [UserController::class, 'info']
 // )->name('users.all');

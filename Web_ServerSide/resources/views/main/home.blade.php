@@ -8,6 +8,9 @@
             <li><a href="{{route('bemvindos')}}">Go Home</a></li>
             <li><a href="{{route('users.all')}}">All Users</a></li>
             <li><a href="{{route('users.add')}}">Add Users</a></li>
+            <li><a href="{{route('home.allTasks')}}">Todas as tarefas</a></li>
+
+
 
         </ul>
         <h3>All Contacts</h3>

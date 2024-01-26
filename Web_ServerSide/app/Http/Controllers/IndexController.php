@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function indexHome () {
+    public function index () {
 
         $contacts = $this->getContacts();
 
