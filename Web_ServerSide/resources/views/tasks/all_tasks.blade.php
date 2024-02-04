@@ -28,6 +28,12 @@
                         <td>{{ $item->due_at }}</td>
                         <td>{{ $item->status }}</td>
                         <td>{{ $item->user_id }}</td>
+                        <td>{{ $item->created_at }}</td>
+                        <td>{{ $item->due_at }}</td>
+
+                        <td><a href="{{route('tasks.view', $item->id)}}">VER/ATUALIZAR</a></td>
+                        <td><a href="{{route('tasks.delete', $item->id)}}">DELETE</a></td>
+
                     </tr>
                 @endforeach
             </tbody>
