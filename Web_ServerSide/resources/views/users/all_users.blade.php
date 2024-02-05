@@ -1,42 +1,53 @@
 @extends('layout.femaster')
 
-    @section('content')
+@section('content')
     <div class="container-sm">
-       {{--  <h2> ALLL USSER BLADE </h2>
+        {{--  <h2> ALLL USSER BLADE </h2>
         <p>{{ $hello }}</p>
         <p>{{ $dayOfWeek[4] }}</p>
 
          <p>{{ $info['name'] }}</p>
         <p>{{ $info['modules'][0] }}</p> --}}
         @if (session('message'))
-        <div class="alert alert-info">
-            {{session('message')}}
-        </div>
+            <div class="alert alert-info">
+                {{ session('message') }}
+            </div>
         @endif
-        <table class="table-bordered">
-            <tbody>
-                @foreach ($users as $user)
-                <tr>
-                    <th>id</th>
-                    <th>nome</th>
-                    <th>phone</th>
-                    <th>email</th>
-                    <th>CREATE</th>
-                    <th>READ</th>
-                    <th>UPDATE</th>
-                    <th>DELETE</th>
-                </tr>
+        <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col">CREATE</th>
+                        <th scope="col">READ</th>
+                        <th scope="col">UPDATE</th>
+                        <th scope="col">DELETE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($users as $user)
                     <tr>
                         <td scope="row">{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
-                        <td>{{ $user->phone }}</td>
                         <td>{{ $user->email }}</td>
-                        <td><a href="{{route('users.view', $user->id)}}" class="btn btn-info">Adicionar</a></td>
-                        <td><a href="" class="btn btn-sucess">Ver</a></td>
-                        <td><a href="{{route('users.view', $user->id)}}" class="btn btn-primary">Atualizar</a></td>
-                        <td><a href="{{route('users.delete', $user->id)}}" class="btn btn-danger">Delete</a></td>
-                     </tr>
-                @endforeach
+                        <td>{{ $user->phone }}</td>
+                        <td>
+                            <a href="{{ route('users.view', $user->id) }}" class="btn btn-info">Adicionar</a>
+                        </td>
+                        <td>
+                            <a href="{{ route('users.view', $user->id) }}"
+                            class="btn btn-dark">Ver Dados</a>
+                        </td>
+                        <td>
+                            <a href="{{ route('users.view', $user->id) }}" class="btn btn-warning">Atualizar</a>
+                        </td>
+                        <td>
+                            <a href="{{ route('users.delete', $user->id) }}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+            @endforeach
             </tbody>
         </table>
     </div>

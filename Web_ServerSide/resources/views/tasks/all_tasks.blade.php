@@ -13,10 +13,11 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Tarefa</th>
-                    <th scope="col">Descrição</th>
-                    <th scope="col">Data</th>
-                    <th scope="col">Estado</th>
                     <th scope="col">Nome</th>
+                    <th>CREATE</th>
+                    <th>READ</th>
+                    <th>UPDATE</th>
+                    <th>DELETE</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,16 +25,11 @@
                     <tr>
                         <td scope="row">{{ $item->id }}</td>
                         <td>{{ $item->name }}</td>
-                        <td>{{ $item->description }}</td>
-                        <td>{{ $item->due_at }}</td>
-                        <td>{{ $item->status }}</td>
                         <td>{{ $item->user_id }}</td>
-                        <td>{{ $item->created_at }}</td>
-                        <td>{{ $item->due_at }}</td>
-
-                        <td><a href="{{route('tasks.view', $item->id)}}">VER/ATUALIZAR</a></td>
-                        <td><a href="{{route('tasks.delete', $item->id)}}">DELETE</a></td>
-
+                        <td><a href="{{route('tasks.add_tasks')}}" class="btn btn-success">NOVA TAREFA</a></td>
+                        <td><a href="{{route('tasks.allTasks')}}" class="btn btn-primary">VER</a></td>
+                        <td><a href="{{route('tasks.view', $item->id)}}" class="btn btn-info">ATUALIZAR</a></td>
+                        <td><a href="{{route('tasks.delete', $item->id)}}" class="btn btn-danger">DELETE</a></td>
                     </tr>
                 @endforeach
             </tbody>

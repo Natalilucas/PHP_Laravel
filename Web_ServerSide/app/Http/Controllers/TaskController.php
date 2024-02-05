@@ -18,13 +18,17 @@ class TaskController extends Controller
 
     public function addTask(){
         $users = DB::table('users')->get();
-        $tasks = DB::table('tasks')->get();
-        return view('tasks.add_tasks', compact('users', 'tasks'));
+
+        return view('tasks.add_tasks', compact('users'));
 }
         /*$users = DB::table('users')->get();
 
 return view('tasks.add_tasks', compact('users'));
     }
+  $request->validate([
+           'name' => 'required|string',
+           'user_id' => 'required|integer'
+        ]);
 
     public function createTask(Request $request){
         Task::insert([
@@ -41,16 +45,14 @@ $request->validate([
 
     public function createTask(Request $request){
         $request->validate([
-            'id' => 'required|integer',
             'name' => 'required|string',
-            'user_id' => 'required|integer'
+            'user_id' => 'required|integer',
         ]);
 
         $tasks = DB::table('tasks')
         ->insert([
-            'id' =>$request->id,
-            'name' => $request->name,
-            'user_id' => $request->user_id
+           'name' => $request->name,
+           'user_id' => $request->user_id
         ]);
 
         return redirect()->route('tasks.allTasks')->with('message', 'Tarefa adicionada com sucesso!');
@@ -86,6 +88,7 @@ $request->validate([
     }
 
     public function deleteTask($id){
+        //dd($id);
         DB::table('task')
         ->where('id', $id)
         ->delete();

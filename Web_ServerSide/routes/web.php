@@ -47,17 +47,26 @@ Route::get('/home', [IndexController::class, 'index']
 //Route::get('/home', [UserController::class, 'indexUser']
 //)->name('home.index');
 
-Route::get('/users/all', [UserController::class, 'allUsers']
-)->name('users.all');
+
+
+
+Route::post('/users/update', [UserController::class,  'updateUser'])
+->name('users.update');
 
 Route::post('/users/create', [UserController::class,  'createUser'])
 ->name('users.create');
 
+Route::post('/tasks/update', [TaskController::class, 'updateTask']
+)->name('tasks.update');
+
+Route::post('/tasks/create', [TaskController::class, 'createTask']
+)->name('tasks.create');
+
 Route::get('/users/add', [UserController::class, 'addUser']
 )->name('users.add');
 
-Route::post('/users/update', [UserController::class,  'updateUser'])
-->name('users.update');
+Route::get('/users/all', [UserController::class, 'allUsers']
+)->name('users.all');
 
 Route::get('/users/delete/{id}', [UserController::class, 'deleteUser']
 )->name('users.delete');
@@ -67,12 +76,6 @@ Route::get('/tasks/all', [TaskController::class, 'allTasks']
 
 Route::get('/tasks/add', [TaskController::class, 'addTask'])
 ->name('tasks.add_tasks');
-
-Route::post('/tasks/create', [TaskController::class, 'createTask']
-)->name('tasks.create');
-
-Route::post('/tasks/update', [TaskController::class, 'updateTask']
-)->name('tasks.update');
 
 Route::get('/tasks/view/{id}', [TaskController::class, 'viewTask']
 )->name('tasks.view');

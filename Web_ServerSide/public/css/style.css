@@ -1,3 +1,5 @@
-*{
+.navbar, footer{
     background: linear-gradient(90deg, rgb(198, 198, 236) 0%, rgb(174, 172, 226) 35%, rgb(205, 231, 236) 100%);
 }
+
+

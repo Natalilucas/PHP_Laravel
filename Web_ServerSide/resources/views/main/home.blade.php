@@ -10,15 +10,14 @@
             <li><a href="{{route('users.add')}}">Add Users</a></li>
             <li><a href="{{route('home.index')}}">Home</a></li>
             <li><a href="{{route('tasks.allTasks')}}">All tasks</a></li>
-            <li><a href="{{route('tasks.view')}}">All tasks</a></li>
-            <li><a href="{{route('tasks.add')}}">Add tasks</a></li>
+            <li><a href="{{route('tasks.add_tasks')}}">Add tasks</a></li>
 
         </ul>
 
-        <h3>All Contacts</h3>
+        <!--<h3>All Contacts</h3>
         <p>{{$contacts['name']}}</p>
         <p>{{$contacts['adress']}}</p>
-        <p>{{$contacts['email']}}</p>
+        <p>{{$contacts['email']}}</p>-->
 
 
 
