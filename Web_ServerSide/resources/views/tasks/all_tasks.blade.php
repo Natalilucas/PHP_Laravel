@@ -14,6 +14,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Tarefa</th>
                     <th scope="col">Nome</th>
+                    <th scope="col">Descrição</th>
                     <th>CREATE</th>
                     <th>READ</th>
                     <th>UPDATE</th>
@@ -26,6 +27,7 @@
                         <td scope="row">{{ $item->id }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->user_id }}</td>
+                        <td>{{ $item->description }}</td>
                         <td><a href="{{route('tasks.add_tasks')}}" class="btn btn-success">NOVA TAREFA</a></td>
                         <td><a href="{{route('tasks.allTasks')}}" class="btn btn-primary">VER</a></td>
                         <td><a href="{{route('tasks.view', $item->id)}}" class="btn btn-info">ATUALIZAR</a></td>

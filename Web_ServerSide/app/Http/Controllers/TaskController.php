@@ -46,12 +46,14 @@ $request->validate([
     public function createTask(Request $request){
         $request->validate([
             'name' => 'required|string',
+            'description' => 'required|string',
             'user_id' => 'required|integer',
         ]);
 
         $tasks = DB::table('tasks')
         ->insert([
            'name' => $request->name,
+           'description' => $request->description,
            'user_id' => $request->user_id
         ]);
 
