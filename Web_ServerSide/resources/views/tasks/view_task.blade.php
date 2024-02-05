@@ -29,7 +29,7 @@
       @enderror
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Descrição</label>
-        <input disabled type="descricao" name="descricao" value="{{old('descricao')}}" class="form-control" id="exampleFormControlInput1" required>
+        <input type="descricao" name="descricao" value="{{old('descricao')}}" class="form-control" id="exampleFormControlInput1" required>
         @error('descricao')
         <div class="invalid-feedback">
             Descrição
