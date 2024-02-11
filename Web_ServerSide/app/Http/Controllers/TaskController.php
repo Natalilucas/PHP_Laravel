@@ -45,9 +45,9 @@ $request->validate([
 
     public function createTask(Request $request){
         $request->validate([
-            'name' => 'required|string',
-            'description' => 'required|string',
-            'user_id' => 'required|integer',
+            'name' => 'required|string|max:10',
+            'description' => 'string|max:200',
+            'user_id' => 'required|integer|exists:users,id',
         ]);
 
         $tasks = DB::table('tasks')
@@ -60,11 +60,24 @@ $request->validate([
         return redirect()->route('tasks.allTasks')->with('message', 'Tarefa adicionada com sucesso!');
     }
 
+
+    // ->leftJoin('users','users_id','=','users_id')
+    //     ->select('tasks.*','users.name as username')
+
+
     public function updateTask(Request $request){
+        $request->validate([
+            'name' => 'required|string|max:10',
+            'description' => 'string|max:200',
+            'user_id' => 'required|integer|exists:users,id',
+        ]);
+
         $tasks = DB::table('tasks')
         ->where('id', $request->id)
         ->update([
             'name' => $request->name,
+            'description' => $request->description,
+            'user_id' => $request->user_id
         ]);
 
         return redirect()->route('tasks.allTasks')->with('message', 'Task atualizada!');

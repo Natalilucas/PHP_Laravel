@@ -8,6 +8,17 @@
 
          <p>{{ $info['name'] }}</p>
         <p>{{ $info['modules'][0] }}</p> --}}
+        <div class="">
+            <form method="GET" class="form-inline w-1">
+                <div class="input-group">
+                    <input type="search" value="" name="search" id="" class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">PROCURAR </button>
+                </div>
+
+            </form>
+        </div>
+
+
         @if (session('message'))
             <div class="alert alert-info">
                 {{ session('message') }}

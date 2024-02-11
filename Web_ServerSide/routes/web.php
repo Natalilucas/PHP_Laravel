@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TaskController;
-
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +30,9 @@ Route::get('/hello/{nome}', function ($nome) {
 });
 
 
+//Rota para adicionar o MiddleWare
+
+Route::get('home/dashboard', [DashboardController::class, 'viewDashboard'])->name('home.dashboard')->middleware('auth');
 
 // Route::get('/home', function () {
 //     return view('main.home');
@@ -57,7 +60,7 @@ Route::post('/users/create', [UserController::class,  'createUser'])
 ->name('users.create');
 
 Route::post('/tasks/update', [TaskController::class, 'updateTask']
-)->name('tasks.update');
+)->name('tasks.update'); //este post faz o envio da view
 
 Route::post('/tasks/create', [TaskController::class, 'createTask']
 )->name('tasks.create');
@@ -75,7 +78,7 @@ Route::get('/tasks/all', [TaskController::class, 'allTasks']
 )->name('tasks.allTasks');
 
 Route::get('/tasks/add', [TaskController::class, 'addTask'])
-->name('tasks.add_tasks');
+->name('tasks.add_tasks'); //este get mostra a view
 
 Route::get('/tasks/view/{id}', [TaskController::class, 'viewTask']
 )->name('tasks.view');

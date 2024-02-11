@@ -23,20 +23,27 @@
       </div>
       @error('name')
       <div class="alert alert-danger">
-          A task descrita não está bem
+         O nome da tarefa é inválido
       </div>
-
       @enderror
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Descrição</label>
-        <input type="descricao" name="descricao" value="{{old('descricao')}}" class="form-control" id="exampleFormControlInput1" required>
+        <input type="descricao" name="descricao" value="{{$myTask->description)}}" class="form-control" id="exampleFormControlInput1" required>
         @error('descricao')
         <div class="invalid-feedback">
-            Descrição
-
+            Descrição inválida
         </div>
-
         @enderror
+      </div>
+      <div class="mb-3">
+        <select name="user_id" id="">
+            <option value="" selected> Seleccione um User</option>
+            @foreach ($users as $user)
+                <option @if ($user->id == $myTask->user_id) selected @endif value="{{ $user->id }}">
+                    {{ $user->name }} </option>
+            @endforeach
+        </select>
+
       </div>
     </div>
       <button type="submit" class="btn btn-primary">ATUALIZAR</button>
