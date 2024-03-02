@@ -20,5 +20,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+      <a href="{{route('password.request')}}">Esqueceu a pass?</a>
 </div>
 @endsection

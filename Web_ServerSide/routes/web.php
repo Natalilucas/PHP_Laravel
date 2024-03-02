@@ -5,6 +5,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TasksAPIController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,8 +33,9 @@ Route::get('/hello/{nome}', function ($nome) {
 
 //Rota para adicionar o MiddleWare
 
-Route::get('home/dashboard', [DashboardController::class, 'viewDashboard'])->name('home.dashboard')->middleware('auth');
+//Route::get('home/dashboard', [DashboardController::class, 'viewDashboard'])->name('home.dashboard')->middleware('auth');
 
+Route::get('home/dashboard', [DashboardController::class, 'viewDashboard'])->name('home.dashboard');
 // Route::get('/home', function () {
 //     return view('main.home');
 // })->name('home.index');
@@ -97,3 +99,6 @@ Route::fallback(function(){
     return view('main.fallback');
 });
 
+Route::get('task/{task}', [TasksAPIController::class, 'show']);
+
+Route::apiResource('task', TasksAPIController::class);

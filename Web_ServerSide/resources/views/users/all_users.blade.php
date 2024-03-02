@@ -48,8 +48,7 @@
                             <a href="{{ route('users.view', $user->id) }}" class="btn btn-info">Adicionar</a>
                         </td>
                         <td>
-                            <a href="{{ route('users.view', $user->id) }}"
-                            class="btn btn-dark">Ver Dados</a>
+                            <a href="{{ route('users.view', $user->id) }}" class="btn btn-dark">Ver Dados</a>
                         </td>
                         <td>
                             <a href="{{ route('users.view', $user->id) }}" class="btn btn-warning">Atualizar</a>
